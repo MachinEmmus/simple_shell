@@ -18,8 +18,7 @@ char *get_env(const char *path_name)
 	while (*enviroment)
 	{
 		token = strtok(*enviroment, delim);
-		path = _strcmp(index, (char *) path_name);
-
+		path = _strcmp(token, (char *) path_name);
 		if (path == 0)
 			return (strtok(NULL, delim));
 		enviroment++;

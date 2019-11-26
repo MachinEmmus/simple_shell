@@ -2,6 +2,7 @@
 #define SHELL_H
 
 /*allowed libraries*/
+#include <stdio.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -13,7 +14,7 @@ extern char **environ;
 
 /*prototypes*/
 char *get_env(const char *path_name);
-void printCommand(**tokens);
+void printCommand(char **tokens);
 char **splitString(char *line);
 char **splitStringPath(char *arguments, char **argvs);
 char *get_line(void);

@@ -16,39 +16,52 @@ int main(void)
     int i = 0;
 	while (1)
 	{
-		write(1, "Mameme_el_bolo_chulitos$ ", 25);
+		write(1, "$ ", 2);
 		getLine = get_line();
         tokens = splitString(getLine);
 
-        /*if (access(tokens[0], X_OK) == 0)
+        if (access(tokens[0], X_OK) == 0)
         {
             printCommand(tokens);
             free(tokens);
         }
         else
         {
-            path = get_env("PATH");   
-        }*/
-        
-        
 
-        
-        /*verification for getline for eof or -1 */
-        /*get path from enviroment*/
-        path = get_env("PATH");
-        path_tokens = splitStringPath(path, tokens);
-        while (path_tokens[i] != NULL)
-        {
-            if (access(path_tokens[i], X_OK) == 0)
-            {
-				execve(path_tokens[i], tokens, NULL);
-                //printCommand(path_tokiens);
-                free(path_tokens);
+	        path = get_env("PATH");
+		path_tokens = splitStringPath(path, tokens);
+       		while (path_tokens[i] != NULL)
+        	{
+            		if (access(path_tokens[i], X_OK) == 0)
+            		{
+				child = fork();
+
+                    if (child == -1)
+                    {
+                        perror("error");
+                        exit(0);
+                    }
+                    else if (child == 0)
+                    {
+                        if(execve(path_tokens[i], tokens, NULL) == -1)
+
+                            perror("error");
+                        exit(1);
+                    }
+                    else
+                        waitpid(-1, &status, 0);
+                    
+                    //execve(path_tokens[i], tokens, NULL);
+                    //printCommand(path_tokens);
+                    //free(path_tokens);
+                }
+                //printf("%s\n", path_tokens[i]);
+                i++;
             }
-           	//printf("%s\n", path_tokens[i]);
-            i++;
         }
-	} 
+    }    
+    	free(tokens);
 	free(getLine);
 	return (0);
 }
+
