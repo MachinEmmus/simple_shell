@@ -19,7 +19,10 @@ char **splitStringPath(char *arguments, char **argvs)
 	tokens = malloc(arg_len * sizeof(char *));
 	/*if malloc files exit*/
 	if (tokens == NULL)
+	{
+		free(tokens);
 		return (NULL);
+	}
 	/*take the line argument and splice it with the delimitors*/
 	token = strtok(arguments, delimitador);
 	/*loop while the token is not null*/
@@ -28,6 +31,7 @@ char **splitStringPath(char *arguments, char **argvs)
 	/*token in position[position] will store what token in order brings*/
 		tokens[position] = str_concat(token, "/");
 		tokens[position] = str_concat(tokens[position], argvs[0]);
+		free(argvs[0]);
 		/*here concatenate "/" and command type in our shell*/
 		position++;
 		/*if position is equal or major than bufsize size*/
@@ -39,7 +43,10 @@ char **splitStringPath(char *arguments, char **argvs)
 			tokens = realloc(tokens, arg_len * sizeof(char *));
 			/*if tokens ends*/
 			if (tokens == NULL)
+			{
+				free(tokens);
 				return (NULL);
+			}
 		}
 		/*token will be delimited with null*/
 		token = strtok(NULL, delimitador);

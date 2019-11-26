@@ -15,13 +15,12 @@ void printCommand(char **tokens)
 
 	if (child == -1)
 	{
-		perror("Error");
 		exit(0);
 	}
 	else if (child == 0)
 	{
 		if (execve(tokens[0], tokens, NULL) == -1)
-			perror("Error");
+			exit(98);
 		exit(1);
 	}
 	else

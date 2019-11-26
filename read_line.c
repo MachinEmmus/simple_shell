@@ -1,9 +1,9 @@
 #include "shell.h"
+
 /**
  * get_line - read a line
  * Return: A string that has what the user typed
  */
-
 char *get_line(void)
 {
 	char *new_line;
@@ -13,6 +13,5 @@ char *get_line(void)
 	if (new_line == NULL)
 		return (NULL);
 	getline(&new_line, &size, stdin);
-
 	return (new_line);
 }
