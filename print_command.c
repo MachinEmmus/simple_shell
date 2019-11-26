@@ -25,5 +25,7 @@ void printCommand(char **tokens)
 		exit(1);
 	}
 	else
-		waitpid(-1, &status, 0);
+		do{
+			waitpid(-1, &status, 0);
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 }

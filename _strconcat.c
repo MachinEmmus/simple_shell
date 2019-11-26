@@ -1,4 +1,4 @@
-#include "shell.h"
+#include <stdlib.h>
 
 /**
  * *str_concat - concatenate two strings

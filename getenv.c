@@ -11,13 +11,15 @@ char *get_env(const char *path_name)
 	char **enviroment;
 	char *delim = "=";
 	char *token;
+	char *line  = NULL;
 	int path;
 
 	enviroment = environ;
 
 	while (*enviroment)
 	{
-		token = strtok(*enviroment, delim);
+		line = str_concat("", *enviroment);
+		token = strtok(line, delim);
 		path = _strcmp(token, (char *) path_name);
 		if (path == 0)
 			return (strtok(NULL, delim));

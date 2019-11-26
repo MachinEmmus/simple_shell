@@ -7,12 +7,12 @@
 char *get_line(void)
 {
 	char *new_line;
-	size_t size = 1024;
+	size_t size = 0;
 
-	new_line = malloc(size * sizeof(char));
-	if (new_line == NULL)
+	fflush(stdin);
+	if(getline(&new_line, &size, stdin) == -1)
+	{
+		free(new_line);
 		return (NULL);
-	getline(&new_line, &size, stdin);
-
-	return (new_line);
+	} return (new_line);
 }
