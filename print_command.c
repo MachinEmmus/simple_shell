@@ -15,13 +15,11 @@ void printCommand(char **tokens)
     else if (child == 0)
     {
         if(execve(tokens[0], tokens, NULL) == -1)
-            printf("no sirve\n");
+            perror("error");
         exit(1);
     }    
     else
         do {
 			waitpid(child, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		/* wait(NULL); */
-        //waitpid(-1, &status, 0);
 }
