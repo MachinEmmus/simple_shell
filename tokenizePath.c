@@ -31,7 +31,6 @@ char **splitStringPath(char *arguments, char **argvs)
 	/*token in position[position] will store what token in order brings*/
 		tokens[position] = str_concat(token, "/");
 		tokens[position] = str_concat(tokens[position], argvs[0]);
-		free(argvs[0]);
 		/*here concatenate "/" and command type in our shell*/
 		position++;
 		/*if position is equal or major than bufsize size*/

@@ -7,6 +7,7 @@
 
 int exit_func(char **token)
 {
+	printf("%s\n", "Function Exit");
 	return (0);
 }
 
