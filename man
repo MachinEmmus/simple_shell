@@ -1,0 +1,59 @@
+.TH man 1 "28 Nov 2019" "1.0" "Holberton Simple Man Page"
+.SH NAME
+hsh - #cisfun$ shell
+
+.SH SYNOPSIS
+hsh (does not support arguments)
+
+.SH DESCRIPTION
+This program is a simple shell implemented from the Bash Shell in the C language. Also can be compiled and runned from the command line. From here yo can use the basic features and functions of the shell programs.
+
+.SH OVERVIEW
+Holberton school group proyect, done for learn the studenst to construct their own shell for educational purposes, it does part of the low-level programming program from holberton school. and consis in construct your own Shell.
+
+.SH RETURN VALUE
+The shell returns the error code given by the last completed command followed by either ctrl-d or exit with no status code.
+
+.SH SYNTAX
+
+$ <command> | ./hsh
+.SS
+Interactive mode:
+
+
+.SS
+EXAMPLE 1:
+$ /bin/ls
+.SS
+EXAMPLE 2:
+$ ls -l
+.SS
+Non-interactive mode:
+
+.SS
+EXAMPLE 1:
+$ echo "ls -l" | ./hsh
+
+.SH BULTING COMMANDS
+
+.SS cd
+- change directory
+
+.SS env
+- list the current enviroment variables
+
+.SS exit
+-exit the shell
+
+..SH SEE ALSO
+DASH(1), access(2), chdir(2), execve(2), _exit(2), exit(3), fflush(3), fork(2), free(3), isatty(3), getcwd(3), malloc(3), open(2), read(2)
+
+
+.SH AUTHORS
+Emmanuel Monsalve
+	1023@holbertonschool.com
+	https://github.com/machinemus
+
+Evert Escalante
+	1025@holbertonschool.com
+	https://github.com/evertcolombia
