@@ -8,7 +8,7 @@
 int main(__attribute((unused))int ac,__attribute((unused))char **av)
 {
 	struct stat st;
-    char *path = NULL;
+    /*char *path = NULL;*/
     /*char *path1 = NULL;*/
     char *buffer;
     char **tokens;
@@ -42,11 +42,11 @@ int main(__attribute((unused))int ac,__attribute((unused))char **av)
 				}
         			else 
 				{
-					path = get_env("PATH");
-					/*path1 = _strdup(path);*/
+					/*path = get_env("PATH");
+					path1 = _strdup(path);
 					printf("%s\n", path);
-					/*errors(tokens, reads, av[0]);*/
-					/*free(path);*/
+					errors(tokens, reads, av[0]);
+					free(path);*/
         			}
 			}
 			free(tokens);
