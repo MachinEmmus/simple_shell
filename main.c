@@ -82,36 +82,6 @@ int i = 0;
 				free_grid(path_tokens, 8);
 			}
 		}
-                /*		i = 0;
-
-		                while (path_tokens[i] != NULL)
-                		{
-    
-		                    if (access(path_tokens[i], X_OK) == 0)
-                		    {
-		                        child = fork();
-
-                		        if (child == -1)
-                        		{
-		                            perror("error");
-                	    	            exit(0);
-                        		}
-		                        else if (child == 0)
-                		        {
-                            			if(execve(path_tokens[i], tokens, NULL) == -1)
-
-			                                perror("error");
-                        		 	exit(1);
-                        	   }
-                        	   else
-				   {
-                           			waitpid(-1, &status, 0);
-			 			free(tokens);
-			           }
-                    		    } i++;
-                		}
-            		}
-        	}*/    
 		free(getLine);
 		free(tokens);
     	}
