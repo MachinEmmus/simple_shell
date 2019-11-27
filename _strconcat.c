@@ -1,41 +1,21 @@
-#include <stdlib.h>
+#include "shell.h"
 
-/**
- * *str_concat - concatenate two strings
- * @s1: string
- * @s2: string
- *
- * Return: pointer to a string (str)
- */
 char *str_concat(char *s1, char *s2)
 {
-	int i = 0, z = 0, h = 0, count, lenght, lenghtTotal;
-	char *str;
+    char s1Length = _strlen(s1);
+    char s2Length = _strlen(s2);
+    char length;
+    int i;
+    int count = 0;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
+    length  = (s1Length + s2Length) + 1;
 
-	while (s1[i])
-		i++;
-	lenghtTotal = i - 1;
-    lenght = lenghtTotal;
+    for (i = s1Length; i <= length; i++)
+    {
+        s1[i] = s2[count];
+        count++;
+    }
+    s1[i] = '\0';
 
-	while (s2[z])
-		z++;
-	lenghtTotal += z + 1;
-
-	str = malloc(sizeof(char) * lenghtTotal);
-	if (str == NULL)
-		return (NULL);
-
-	for (count = 0; count <= lenghtTotal + 1; count++)
-	{
-		if (count > lenght)
-			str[count] = s2[h], h++;
-		else
-			str[count] = s1[count];
-	}
-	return (str);
+   return (s1);
 }

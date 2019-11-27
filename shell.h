@@ -36,11 +36,16 @@ void childFork(char **tokens);
 void errors(char **tokens, int interactions, char *argument);
 void handleCtrlc(int i);
 char *inttochar(int reads);
+void *_calloc(unsigned int nmemb, unsigned int size);
+void free_grid(char **grid, int height);
+
 /*STRING*/
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *str_concat(char *s1, char *s2);
 char *_strdup(char *str);
+char *_strcpy(char *dest, char *src);
+
 /*STRUCTURE*/
 int (*get_command(char *s))(char **);
 int exit_func(char **token);

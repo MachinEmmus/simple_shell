@@ -2,45 +2,40 @@
 
 char *get_env(const char *path_name)
 {
-	/*index, will go throught the enviroment
-	delimiting by '='*/
 	char *index;
-
-	/*path =  correct path*/
 	int path;
-        
-	/*enviroment from the header, from the environ
-	variable*/
 	char **enviroment;
-	
 	char *delimitator = "=";
-
 	char *line = NULL;
-	/*int  i = 0;*/
-	enviroment = environ;
+	/*int i = 0;*/
 
-	/*whle enviroment can be traverse look for the correct
-	index */
+	enviroment = environ;
+	/*line = strdup(*enviroment);*/
+
 	while (*enviroment)
 	{
+			/*line = str_concat("", *enviroment);*/
 			line = _strdup(*enviroment);
-			/*printf("%s\n", line);*/
-			/*delimit the enviroment in  index*/
+			/*line = _strcpy(line, *enviroment);*/
 			index = strtok(line, delimitator);
-			/*compare the index content with the path_name, 
-			if is true return this adding null at the final
-			
-			else plus enviroment till fnd the correct name
-			*/
+			/*printf("%s\n", index);*/
 			path = _strcmp(index, (char *) path_name);
-			if (path == 0)
-					return (strtok(NULL, delimitator));
-			enviroment++;
-
-			/*
-			_strcmp(index, (char *) path_name) == 0 ? 
-				return (strtok(NULL, delim)) : enviroment++;
-			*/
-	} return (NULL);
+			/*if (_strcmp(index, (char *) path_name) == 0)*/
+			if(path == 0)
+			{
+				printf("line: %s\n\n", line);
+				/*free(index);*/
+				strtok(NULL, delimitator);
+				return(*enviroment);
+				/*return ((strtok(NULL, delimitator)));*/
+			}
+			else
+			{
+				free(index);
+			}
+			enviroment++;	
+	}
+	/*free(index);*/
+	/*free(line);*/
+	 return (NULL);
 }
-
