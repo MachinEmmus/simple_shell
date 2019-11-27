@@ -7,6 +7,7 @@
 
 int exit_func(char **token)
 {
+	token = token;
 	return (0);
 }
 
@@ -18,6 +19,7 @@ int exit_func(char **token)
 
 int env_func(char **token)
 {
+	token = token;
 	char **env = environ;
 int i = 0;
 	while (env[i] != NULL)
@@ -35,5 +37,6 @@ int i = 0;
  */
 int nextstep(char **tokens)
 {
+	tokens = tokens;
 	return (1);
 }
