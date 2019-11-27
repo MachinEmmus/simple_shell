@@ -1,5 +1,13 @@
 #include "shell.h"
 
+/**
+ * get_env - get path
+ * @path_name: path to get
+ *
+ * Return: pointer
+ *
+ *
+ */
 char *get_env(const char *path_name)
 {
 	char *index;
@@ -7,35 +15,27 @@ char *get_env(const char *path_name)
 	char **enviroment;
 	char *delimitator = "=";
 	char *line = NULL;
-	/*int i = 0;*/
+	int i = 0;
 
 	enviroment = environ;
-	/*line = strdup(*enviroment);*/
-
-	while (*enviroment)
+	while (enviroment[i] != NULL)
 	{
-			/*line = str_concat("", *enviroment);*/
-			line = _strdup(*enviroment);
-			/*line = _strcpy(line, *enviroment);*/
+			line = _strdup(enviroment[i]);
 			index = strtok(line, delimitator);
-			/*printf("%s\n", index);*/
 			path = _strcmp(index, (char *) path_name);
 			/*if (_strcmp(index, (char *) path_name) == 0)*/
-			if(path == 0)
+			if (path == 0)
 			{
-				printf("line: %s\n\n", line);
-				/*free(index);*/
 				strtok(NULL, delimitator);
-				return(*enviroment);
+				return (enviroment[i]);
 				/*return ((strtok(NULL, delimitator)));*/
 			}
 			else
 			{
 				free(index);
 			}
-			enviroment++;	
+			/*enviroment++;*/
+			i++;
 	}
-	/*free(index);*/
-	/*free(line);*/
-	 return (NULL);
+	return (NULL);
 }

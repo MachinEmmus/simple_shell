@@ -1,14 +1,16 @@
 #include "shell.h"
 /**
- * 
+ * inttochar - convert a int to char type
+ * @reads: int
  *
- *
+ * Return: string
  */
 char *inttochar(int reads)
 {
 	int num, i, mod, len = 0;
 	char s[4];
 	char *str = s;
+
 	num = reads;
 	while (num != 0)
 	{

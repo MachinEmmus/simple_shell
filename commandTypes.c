@@ -21,6 +21,7 @@ int env_func(char **token)
 {
 	char **env = environ;
 	int i = 0;
+
 	token = token;
 	while (env[i] != NULL)
 	{
