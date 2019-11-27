@@ -9,17 +9,35 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern char **environ;
+/**
+ * struct noenvfunc - our struct
+ *
+ * @str: string typed for the standar input
+ * @func: is my function returned
+ *
+ */
+typedef struct noenvfunc
+{
+	char *str;
+	int (*func)(char **);
+} s_func;
 
+extern char **environ;
+/*PROTOTYPES*/
 char **splitString(char *line);
 char *get_line(void);
 void printCommand(char **tokens);
 char *get_env(const char *path_name);
 char **splitStringPath(char *arguments, char **argvs);
 void env_prog(char **tokens);
-
+/*STRING*/
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *str_concat(char *s1, char *s2);
+/*STRUCTURE*/
+int (*get_command(char *s))(char **);
+int exit_func(char **token);
+int env_func(char **env);
+int nextstep(char **tokens);
 
 #endif/*SHELL_H*/
