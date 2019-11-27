@@ -11,9 +11,9 @@ int main(void)
    char *getLine;
    char **tokens;
    char **path_tokens;
-    /*pid_t child;*/
+   pid_t child;
 int i = 0;
-   /*int  status;*/
+   int  status;
     
 	while (1)
 	{
@@ -26,7 +26,7 @@ int i = 0;
         	if (getLine == NULL)
         	{
         		if (isatty(STDIN_FILENO))
-               			write(1, "\n", 1);
+				write(1, "\n", 7);
            		continue;
 	        }		
         	else
@@ -41,6 +41,7 @@ int i = 0;
 	    		if (tokens[0][0] == '/')
             		{
                 		printCommand(tokens);
+				/*free(tokens);*/
             		}
 	
             		else
@@ -48,17 +49,34 @@ int i = 0;
 				/*memory leak here*/
                 		path = get_env("PATH");
 				printf("path: %s\n", path);
-				/*i = 0*/
-				/*free(path);*/
-			
-			/*free(path);*/
 	
 		                path_tokens = splitStringPath(path, tokens);
-
+				i = 0;
 				while (path_tokens[i] != NULL)
 				{
-					/*printf("here\n");*/
-					printf("%s [%d]\n", path_tokens[i], i);
+					if (access(path_tokens[i], X_OK) == 0)
+                                    	{
+                                        	child = fork();
+
+	                                        if (child == -1)
+        	                                {
+                	                            perror("error\n");
+                        	                    exit(0);
+                                	        }
+	                                        else if (child == 0)
+        	                                {
+							printf("cero\n");
+                	                                if(execve(path_tokens[i], tokens, NULL) == -1)
+	                                                        perror("error");
+        	                                        exit(1);
+               	                   		}
+                        	           	else
+                                   		{
+                                                	waitpid(-1, &status, 0);
+                                                	/*free(tokens);*/
+							printf("padre\n");
+                                   		}
+                               		}
 					i++;
 				}
 				free_grid(path_tokens, 8);
@@ -84,12 +102,12 @@ int i = 0;
 
 			                                perror("error");
                         		 	exit(1);
-                        		}
-                        		else
-					{2
+                        	   }
+                        	   else
+				   {
                            			waitpid(-1, &status, 0);
 			 			free(tokens);
-					}
+			           }
                     		    } i++;
                 		}
             		}
