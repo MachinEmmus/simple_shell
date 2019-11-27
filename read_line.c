@@ -11,7 +11,7 @@ size_t size = 0;
 	if (getline(&new_line, &size, stdin) == EOF)
 	{
 		free(new_line);
-		exit(EXIT_FAILURE);
+		exit(0);
 	}
 	return (new_line);
 }

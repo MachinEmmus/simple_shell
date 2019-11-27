@@ -8,7 +8,7 @@
 int exit_func(char **token)
 {
 	token = token;
-	return (0);
+	return (1);
 }
 
 /**
@@ -28,7 +28,7 @@ int env_func(char **token)
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 /**
  * nextstep - function to continue my program
@@ -38,5 +38,5 @@ int env_func(char **token)
 int nextstep(char **tokens)
 {
 	tokens = tokens;
-	return (1);
+	return (0);
 }

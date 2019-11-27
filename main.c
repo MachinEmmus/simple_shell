@@ -12,8 +12,8 @@ int main(__attribute((unused))int ac,__attribute((unused))char **av)
     char *buffer;
     char **tokens;
     /*char **path_tokens;*/
-    int i = 0, loop = 1, reads = 0;
-	while (loop == 1)
+    int loop = 0, reads = 0;
+	while (loop == 0)
 	{
 		reads++;
         if (isatty(STDIN_FILENO))
@@ -24,16 +24,15 @@ int main(__attribute((unused))int ac,__attribute((unused))char **av)
 
 		if (buffer == NULL)
 		{
-			printf("Entre aca\n");
 			if (isatty(STDIN_FILENO))
-				i = 1;
+
 			continue;
 		}
-        if (i == 0)/*Aca hace falta un free*/
-        {
+		else
+		{
 			tokens = splitString(buffer);
 			loop = get_command(tokens[0])(tokens);
-			if (loop == 1)
+			if (loop == 0)
 			{	
 				if (stat(tokens[0], &st) == 0)
 				{
