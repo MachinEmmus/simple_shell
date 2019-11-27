@@ -18,10 +18,8 @@ int main(__attribute((unused))int ac,__attribute((unused))char **av)
 		reads++;
         if (isatty(STDIN_FILENO))
 		    write(1, "MiShell$ ", 9);
-
 		signal(SIGINT, handleCtrlc);
 		buffer = get_line();
-
 		if (buffer == NULL)
 		{
 			if (isatty(STDIN_FILENO))
