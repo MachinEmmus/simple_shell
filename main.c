@@ -10,8 +10,9 @@ int main(void)
    char *path;
    char *getLine;
    char **tokens;
-    /*char **path_tokens;*/
+   char **path_tokens;
     /*pid_t child;*/
+int i = 0;
    /*int  status;*/
     
 	while (1)
@@ -26,7 +27,7 @@ int main(void)
         	{
         		if (isatty(STDIN_FILENO))
                			write(1, "\n", 1);
-           		break;
+           		continue;
 	        }		
         	else
         	{
@@ -44,13 +45,26 @@ int main(void)
 	
             		else
             		{    
+				/*memory leak here*/
                 		path = get_env("PATH");
 				printf("path: %s\n", path);
+				/*i = 0*/
+				/*free(path);*/
+			
+			/*free(path);*/
+	
+		                path_tokens = splitStringPath(path, tokens);
+
+				while (path_tokens[i] != NULL)
+				{
+					/*printf("here\n");*/
+					printf("%s [%d]\n", path_tokens[i], i);
+					i++;
+				}
+				free_grid(path_tokens, 8);
 			}
 		}
-		/*
-		                path_tokens = splitStringPath(path, tokens);
-                		i = 0;
+                /*		i = 0;
 
 		                while (path_tokens[i] != NULL)
                 		{
@@ -72,7 +86,7 @@ int main(void)
                         		 	exit(1);
                         		}
                         		else
-					{
+					{2
                            			waitpid(-1, &status, 0);
 			 			free(tokens);
 					}
@@ -82,9 +96,8 @@ int main(void)
         	}*/    
 		free(getLine);
 		free(tokens);
-		free(path);
     	}
-	/*free(tokens);*/
+	free(path);
 	return (0);
 }
 

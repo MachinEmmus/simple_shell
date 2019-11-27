@@ -17,9 +17,12 @@ void printCommand(char **tokens);
 char *get_env(const char *path_name);
 char **splitStringPath(char *arguments, char **argvs);
 void env_prog(char **tokens);
+void free_grid(char **grid, int height);
 
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *str_concat(char *s1, char *s2);
+char *_strcpy(char *dest, char *src);
+void *_calloc(unsigned int nmemb, unsigned int size);
 
 #endif/*SHELL_H*/
