@@ -19,9 +19,9 @@ int exit_func(char **token)
 
 int env_func(char **token)
 {
-	token = token;
 	char **env = environ;
-int i = 0;
+	int i = 0;
+	token = token;
 	while (env[i] != NULL)
 	{
 		write(STDOUT_FILENO, env[i], _strlen(env[i]));

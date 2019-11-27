@@ -16,7 +16,7 @@ char *get_env(const char *path_name)
 	char *delimitator = "=";
 
 	char *line = NULL;
-	//int  i = 0;
+	/*int  i = 0;*/
 	enviroment = environ;
 
 	/*whle enviroment can be traverse look for the correct
@@ -24,7 +24,7 @@ char *get_env(const char *path_name)
 	while (*enviroment)
 	{
 			line = _strdup(*enviroment);
-			//printf("%s\n", line);
+			/*printf("%s\n", line);*/
 			/*delimit the enviroment in  index*/
 			index = strtok(line, delimitator);
 			/*compare the index content with the path_name, 

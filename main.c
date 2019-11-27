@@ -8,10 +8,10 @@
 int main(__attribute((unused))int ac,__attribute((unused))char **av)
 {
 	struct stat st;
-    //char *path;
+    /*char *path;*/
     char *buffer;
     char **tokens;
-    //char **path_tokens;
+    /*char **path_tokens;*/
     int i = 0, loop = 1, reads = 0;
 	while (loop == 1)
 	{
@@ -46,7 +46,7 @@ int main(__attribute((unused))int ac,__attribute((unused))char **av)
 				}
         		else 
 				{
-					//Concatenar con el path y ver si se puede ejecutar
+					/*Concatenar con el path y ver si se puede ejecutar*/
 					/*errors(tokens, reads, av[0]);*/
         		}
 			}

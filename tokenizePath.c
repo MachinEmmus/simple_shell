@@ -6,7 +6,7 @@ char **splitStringPath(char *arguments, char **argvs)
     char *delimitador =  ":\n";
 
 	/*init a bufsize and a position = 0*/
-	int position = 0, arg_len = 1; //bufer_size = BUFSIZE;
+	int position = 0, arg_len = 1; /*bufer_size = BUFSIZE;*/
 
 	/*dobule pointer to create space in memory  fot the bufsize*/
 	char **tokens;
