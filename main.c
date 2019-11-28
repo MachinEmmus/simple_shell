@@ -25,7 +25,7 @@ int loop = 0, reads = 0;
 		if (buffer == NULL)
 		{
 			if (isatty(STDIN_FILENO))
-				
+
 			continue;
 		}
 		else
@@ -38,9 +38,6 @@ int loop = 0, reads = 0;
 					childFork(tokens);
 				else
 				{
-					/*path = get_env("PATH");*/
-					/*printf("%s\n", path);*/
-					/*free(path);*/
 					/* errors(tokens, reads, av[0]);free(path);*/
 				}
 			}

@@ -38,16 +38,14 @@ int i = 0;
 					printf("ejecutable");
 					free(tmp);
 					free(concatenate1);
-					return(concatenate2);
-				/*return ((strtok(NULL, delimitator)));*/
+					return (concatenate2);
 				}
 				free(concatenate1);
 				free(concatenate2);
 				index = strtok(NULL, delimtwo);
 			}
-		}	
+		}
 		free(tmp);
-		/*enviroment++;*/
 		i++;
 	}
 	return (NULL);
