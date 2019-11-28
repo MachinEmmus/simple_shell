@@ -4,7 +4,7 @@
 
 The main objective with this project is to make a simple shell similar to the Unix native 'sh', here we handle the "PATH" and we can execute all the commands we find in the "PATH" including also print the enviroment and the function exit to exit the simple shell
 
-### ¿What is the SHELL?
+### ¿What is the SHELL? 📌
 
 _Simply put, the shell is a program that takes commands from the keyboard and gives them to the operating system to perform. In the old days, it was the only user interface available on a Unix-like system such as Linux. Nowadays, we have graphical user interfaces (GUIs) in addition to command line interfaces (CLIs) such as the shell.
 
@@ -42,7 +42,7 @@ On most Linux systems a program called bash (which stands for Bourne Again SHell
 * wait4 (man 2 wait4)
 * write (man 2 write)
 
-### Compilation
+### Compilation 🚀
 
 * Your code will be compiled this way:
 
@@ -50,7 +50,7 @@ On most Linux systems a program called bash (which stands for Bourne Again SHell
 $ gcc -gdd  -Wall -Werror -Wextra -pedantic *.c -o hsh
 ```
 
-### Execute
+### Execute 🚀
 
 * Your code will be execue this:
 
@@ -62,10 +62,27 @@ MiShell$ _
 ### Shell Intereactive Run this
 
 ```sh
+MiShell$ /bin/ls
+'This command list the directories in current path'
+MiShell$ ls
+'This command list the directories in current path'
+MiShell$ pwd 
+ $HOME _
+'The absolute path in current directoy'
+```
 
-``
+### Shell No Intereactive Run this
 
-
+```sh
+$ echo "/bin/ls" | ./hsh
+MiShell$ /bin/ls
+'This command list the directories in current path'
+exit
+$ echo "ls" | ./hsh
+MiShell$ ls
+'This command list the directories in current path'
+exit 
+```
 
 ## buildt with 🛠️
 
