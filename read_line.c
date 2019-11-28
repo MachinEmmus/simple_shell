@@ -10,7 +10,6 @@ size_t size = 0;
 	fflush(stdin);
 	if (getline(&new_line, &size, stdin) == EOF)
 	{
-		write(STDOUT_FILENO, "\n", 1);
 		free(new_line);
 		exit(0);
 	}
