@@ -50,6 +50,21 @@ On most Linux systems a program called bash (which stands for Bourne Again SHell
 $ gcc -gdd  -Wall -Werror -Wextra -pedantic *.c -o hsh
 ```
 
+### Execute
+
+* Your code will be execue this:
+
+```sh
+$ ./hsh
+MiShell$ _
+```
+
+### Shell Intereactive Run this
+
+```sh
+
+``
+
 
 
 ## buildt with 🛠️
