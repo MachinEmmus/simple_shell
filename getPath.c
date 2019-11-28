@@ -10,32 +10,45 @@
  */
 char *get_env(const char *path_name)
 {
-	char *index;
-	int path;
-	char **enviroment;
-	char *delimitator = "=";
-	char *line = NULL;
-	int i = 0;
-
+char *command = "ls";
+char *index;
+int path;
+char **enviroment;
+char *deligual = "=";
+char *delimtwo = ":";
+char *tmp = NULL;
+char *concatenate1 = NULL;
+char *concatenate2 = NULL;
+int i = 0;
 	enviroment = environ;
-	while (enviroment[i] != NULL)
+	while (enviroment[i])
 	{
-			line = _strdup(enviroment[i]);
-			index = strtok(line, delimitator);
-			path = _strcmp(index, (char *) path_name);
-			/*if (_strcmp(index, (char *) path_name) == 0)*/
-			if (path == 0)
+		tmp = _strdup(enviroment[i]);
+		index = strtok(tmp, deligual);
+		path = _strcmp(index, (char *) path_name);
+		/*if (_strcmp(index, (char *) path_name) == 0)*/
+		if (path == 0)
+		{
+			while (index)
 			{
-				strtok(NULL, delimitator);
-				return (enviroment[i]);
+				concatenate1 = str_concat(index, "/");
+				concatenate2 = str_concat(concatenate1, command);
+				if (access(concatenate2, X_OK) == 0)
+				{
+					printf("ejecutable");
+					free(tmp);
+					free(concatenate1);
+					return(concatenate2);
 				/*return ((strtok(NULL, delimitator)));*/
+				}
+				free(concatenate1);
+				free(concatenate2);
+				index = strtok(NULL, delimtwo);
 			}
-			else
-			{
-				free(index);
-			}
-			/*enviroment++;*/
-			i++;
+		}	
+		free(tmp);
+		/*enviroment++;*/
+		i++;
 	}
 	return (NULL);
 }

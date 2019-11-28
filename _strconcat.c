@@ -1,27 +1,38 @@
 #include "shell.h"
 /**
- * str_concat - concatenate two strings
- * @s1: string
- * @s2: string
- *
- * Return: string
+ * *str_concat - Concatenute
+ * @s1: First one String
+ * @s2: Second String
+ * Return: char
  */
+
 char *str_concat(char *s1, char *s2)
 {
-	char s1Length = _strlen(s1);
-	char s2Length = _strlen(s2);
-	char length;
-	int i;
-	int count = 0;
-
-	length  = (s1Length + s2Length) + 1;
-
-	for (i = s1Length; i <= length; i++)
+int Sum, a = 0, b = 0;
+int i, x = 0;
+char *p;
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	while (s1[a] != '\0')
+		a++;
+	while (s2[b] != '\0')
+		b++;
+	b++;
+	Sum = a + b;
+	p = malloc(Sum);
+	if (p == NULL)
+		return (NULL);
+	for (i = 0; i <= Sum; i++)
 	{
-		s1[i] = s2[count];
-			count++;
+		if (i > (a - 1))
+		{
+			*(p + i) = *(s2 + x);
+			x++;
+		}
+		else
+			*(p + i) = *(s1 + i);
 	}
-		s1[i] = '\0';
-
-	return (s1);
+	return (p);
 }

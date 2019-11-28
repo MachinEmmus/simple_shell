@@ -50,6 +50,8 @@ On most Linux systems a program called bash (which stands for Bourne Again SHell
 $ gcc -gdd  -Wall -Werror -Wextra -pedantic *.c -o hsh
 ```
 
+
+
 ## buildt with 🛠️
 
 _Project constructions tools_
